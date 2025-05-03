@@ -32,7 +32,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <link
           rel="icon"
           type="image/png"
-          href="../public/cv.png"
+          href="https://raw.githubusercontent.com/SALEHINISLAM/cv-template/main/public/cv.png"
         />
         <Meta />
         <Links />
