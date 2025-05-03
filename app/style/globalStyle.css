@@ -1,0 +1,4 @@
+.listMarkers ul > li::marker,
+.listMarkers ol > li::marker {
+  color: inherit !important; /* gray-600, overrides inline style */
+}
