@@ -16,7 +16,7 @@ export function meta({}: Route.MetaArgs) {
   return [
     { title: "Civil Engineer CV" },
     { name: "description", content: "Civil Engineer CV" },
-    {Image:"../../public/engineer_10899202.png"}
+    { Image: "../../public/engineer_10899202.png" },
   ];
 }
 
@@ -59,19 +59,19 @@ const IconComponent = ({
   // If the icon exists in our map, render it, otherwise render nothing
   return Icon ? <Icon className={className} /> : null;
 };
-type LanguageLevel = "native" | "advanced" | "beginner"
+type LanguageLevel = "native" | "advanced" | "beginner";
 const getFilledCircles = (level: LanguageLevel): number => {
-    switch (level) {
-      case "native":
-        return 5
-      case "advanced":
-        return 3
-      case "beginner":
-        return 1
-      default:
-        return 0
-    }
+  switch (level) {
+    case "native":
+      return 5;
+    case "advanced":
+      return 3;
+    case "beginner":
+      return 1;
+    default:
+      return 0;
   }
+};
 
 const experienceList: {
   designation: string;
@@ -190,34 +190,37 @@ const achievementList: { icon: string; title: string; description: string }[] =
     },
   ];
 
-const languageList:{name:string, level:LanguageLevel}[]=[{
-    name:"English",
-    level:"native"
-},
-{
-    name:"Spanish",
-    level:"advanced"
-},
-{
-    name:"French",
-    level:"beginner"
-}
-]
+const languageList: { name: string; level: LanguageLevel }[] = [
+  {
+    name: "English",
+    level: "native",
+  },
+  {
+    name: "Spanish",
+    level: "advanced",
+  },
+  {
+    name: "French",
+    level: "beginner",
+  },
+];
 
 export default function CivilEngineerCV() {
   return (
     <div className="container mx-auto px-4 py-20">
-      <div className="overflow-auto">
-        <div className="w-[2480] bg-[#c2c2c2] p-20">
+      <div className="overflow-auto items-center justify-center flex">
+        <div className="w-[794px] bg-[#c2c2c2] p-[72px]">
+          {/* name */}
           <h1 className="uppercase text-4xl text-[#113f37] font-bold">
             Tom Munez
           </h1>
+          {/* title/ designation */}
           <p className="text-[#328b5f] mt-2.5 text-xl font-bold">
             Experienced Civil Engineer & Project Leader
           </p>
           {/* number, email, link */}
           <div className="flex flex-col w-full text-lg">
-            <div className="grid grid-cols-3">
+            <div className="flex flex-wrap justify-between">
               {/* phone */}
               <div className="flex flex-row gap-1 items-center ">
                 <BiPhone className="text-[#328b5f]" />
@@ -243,15 +246,18 @@ export default function CivilEngineerCV() {
                   linkedin.com
                 </Link>
               </div>
-            </div>
-            <div className="flex flex-row gap-1 items-center">
-              <FaLocationDot className="text-[#328b5f] " />
-              <p className="text-[#42576a] font-semibold">San Francisco, CA</p>
+              {/* location */}
+              <div className="flex flex-row gap-1 items-center">
+                <FaLocationDot className="text-[#328b5f] " />
+                <p className="text-[#42576a] font-semibold">
+                  San Francisco, CA
+                </p>
+              </div>
             </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-12 mt-8">
-            <div className="col-span-2 space-y-6 pr-4">
+          <div className="grid grid-cols-3 gap-8 mt-8">
+            <div className="col-span-2 space-y-6">
               {/* summery */}
               <div className="">
                 <h3 className="uppercase text-[#113f37] font-bold text-xl">
@@ -349,7 +355,7 @@ export default function CivilEngineerCV() {
                 })}
               </div>
             </div>
-            <div className=" space-y-6">
+            <div className="space-y-6">
               <div className="">
                 <h3 className="uppercase text-[#113f37] font-bold text-xl">
                   Skills
@@ -428,7 +434,8 @@ export default function CivilEngineerCV() {
                 </h3>
                 <hr className="h-2 bg-[#113f37] mb-4" />
                 <p className="text-[#328b5f] text-lg">
-                  Engineers like to solve problems. If there are no problems handily available, they will create their own problems.
+                  Engineers like to solve problems. If there are no problems
+                  handily available, they will create their own problems.
                 </p>
               </div>
 
@@ -439,27 +446,39 @@ export default function CivilEngineerCV() {
                 </h3>
                 <hr className="h-2 bg-[#113f37] mb-4" />
                 <div>
-      {languageList.map((language, index) => (
-        <div key={index} className="mb-3 flex items-center gap-4 justify-between">
-          <div className="flex flex-col ">
-            <h4 className="text-[#55595f] font-bold text-lg">{language.name}</h4>
-            <p className="text-[#55595f] text-lg">
-              {language.level.charAt(0).toUpperCase() + language.level.slice(1)}
-            </p>
-          </div>
-          <div className="flex gap-1 mt-1">
-            {/* Render 5 circles for each language */}
-            {[...Array(5)].map((_, i) => {
-              // Determine if this circle should be filled based on the language level
-              const isFilled = i < getFilledCircles(language.level)
-              return <div key={i} className={`w-4 h-4 rounded-full ${isFilled ? "bg-[#328b5f]" : "bg-gray-300"}`}></div>
-            })}
-          </div>
-        </div>
-      ))}
-    </div>
+                  {languageList.map((language, index) => (
+                    <div
+                      key={index}
+                      className="mb-3 flex items-center gap-4 justify-between"
+                    >
+                      <div className="flex flex-col ">
+                        <h4 className="text-[#55595f] font-bold text-lg">
+                          {language.name}
+                        </h4>
+                        <p className="text-[#55595f] text-lg">
+                          {language.level.charAt(0).toUpperCase() +
+                            language.level.slice(1)}
+                        </p>
+                      </div>
+                      <div className="flex gap-1 mt-1">
+                        {/* Render 5 circles for each language */}
+                        {[...Array(5)].map((_, i) => {
+                          // Determine if this circle should be filled based on the language level
+                          const isFilled = i < getFilledCircles(language.level);
+                          return (
+                            <div
+                              key={i}
+                              className={`w-4 h-4 rounded-full ${
+                                isFilled ? "bg-[#328b5f]" : "bg-gray-300"
+                              }`}
+                            ></div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
-
             </div>
           </div>
         </div>
